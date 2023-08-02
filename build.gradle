@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.selenium'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+ext {
+    selenium = "4.8.1"
+    cucumber = "7.11.1"
+    jcucumber = "7.11.0"
+    junit = "4.13.2"
+    report = "1.10.1"
+    simple = "2.0.7"
+}
+
+dependencies {
+
+    implementation "org.seleniumhq.selenium:selenium-java:${selenium}"
+    implementation "io.cucumber:cucumber-java:${cucumber}"
+    testImplementation "io.cucumber:cucumber-junit:${jcucumber}"
+    testImplementation "org.slf4j:slf4j-simple:${simple}"
+    testImplementation "junit:junit:${junit}"
+    implementation "tech.grasshopper:extentreports-cucumber7-adapter:${report}"
+
+}
+
+test{
+    systemProperty("cucumber.options",System.getProperty("cucumber.options"))
+}
+
+
